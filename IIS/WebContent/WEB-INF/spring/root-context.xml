@@ -21,9 +21,8 @@
 	
 	<!-- Определяем папки, в которых будем автоматически искать бины-компоненты 
 		(@Component, @Service) -->
-	<context:component-scan base-package="org.happylook.dao" />
-	<context:component-scan base-package="org.happylook.service" />
-	<context:component-scan base-package="org.happylook.facade" />
+	<context:component-scan base-package="iis.dao" />
+	<context:component-scan base-package="iis.service" />
 	
 	<!-- Файл с настройками ресурсов для работы с данными (Data Access Resources) -->
 	<import resource="dataSource.xml" />

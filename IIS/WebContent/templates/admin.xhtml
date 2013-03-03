@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Admin console</title>
+
+		<link rel="stylesheet" href="/resources/admin/css/main.css"
+			type="text/css" media="screen, projection" />
+
+		<style type="text/css">
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+</style>
+	</h:head>
+	<h:body>
+		<p:layout fullPage="true">
+			<p:layoutUnit id="top" position="north" size="50">
+				<h:form>
+					<p:menubar autoSubmenuDisplay="true" styleClass="ui-widget-header">
+						<p:submenu label="File" icon="ui-icon-document">
+							<p:submenu label="New" icon="ui-icon-contact">
+								<p:menuitem value="Project" url="#" helpText="CTRL+N" />
+								<p:menuitem value="Other" url="#" helpText="CTRL+O" />
+							</p:submenu>
+							<p:menuitem value="Open" url="#" />
+							<p:menuitem value="Quit" url="#" />
+						</p:submenu>
+
+						<p:submenu label="Edit" icon="ui-icon-pencil">
+							<p:menuitem value="Undo" url="#"
+								icon="ui-icon-arrowreturnthick-1-w" helpText="CTRL+Z"></p:menuitem>
+							<p:menuitem value="Redo" url="#"
+								icon="ui-icon-arrowreturnthick-1-e" helpText="CTRL+Y"></p:menuitem>
+						</p:submenu>
+
+						<p:submenu label="Help" icon="ui-icon-help">
+							<p:menuitem value="Contents" url="#" />
+							<p:submenu label="Search" icon="ui-icon-search">
+								<p:submenu label="Text">
+									<p:menuitem value="Workspace" url="#" />
+								</p:submenu>
+								<p:menuitem value="File" url="#" />
+							</p:submenu>
+						</p:submenu>
+					</p:menubar>
+				</h:form>
+			</p:layoutUnit>
+
+			<p:layoutUnit id="left" position="west" size="300" resizable="true"
+				closable="true" collapsible="true" header="Панель управления"
+				minSize="200">
+				<h:form>
+					<p:accordionPanel multiple="true" activeIndex="0,1,2,3,4,5">
+
+						<p:tab title="Менеджер статей">
+							<p:commandLink action="/GUI/admin/article/add.jsf?faces-redirect=true"
+								value="Добавить статью" />
+							<br />
+							<p:commandLink action="/GUI/admin/article/list.jsf?faces-redirect=true"
+								value="Список статей" />
+							<br />
+						</p:tab>
+						<p:tab title="Менеджер файлов">
+							<p:commandLink action="/GUI/admin/file/add.jsf?faces-redirect=true"
+								value="Менеджер изображений" />
+							<br />
+						</p:tab>
+
+						<p:tab title="Менеджер клиентов">
+							<p:commandLink action="/GUI/admin/user/customer/add.jsf?faces-redirect=true"
+								value="Добавить клиента" />
+							<br />
+							<p:commandLink action="/GUI/admin/user/customer/list.jsf?faces-redirect=true"
+								value="Список клиентов" />
+							<br />
+						</p:tab>
+						<p:tab title="Менеджер поставщиков">
+							<p:commandLink action="/GUI/admin/user/provider/add.jsf?faces-redirect=true"
+								value="Добавить поставщика" />
+							<br />
+							<p:commandLink action="/GUI/admin/user/provider/list.jsf?faces-redirect=true"
+								value="Список поставщиков" />
+							<br />
+						</p:tab>
+						<p:tab title="Менеджер производителей">
+							<p:commandLink action="/GUI/admin/brand/add.jsf?faces-redirect=true"
+								value="Добавить производителя" />
+							<br />
+							<p:commandLink action="/GUI/admin/brand/list.jsf?faces-redirect=true"
+								value="Список производителей" />
+							<br />
+						</p:tab>
+
+					</p:accordionPanel>
+				</h:form>
+
+
+			</p:layoutUnit>
+
+			<p:layoutUnit id="right" position="east" size="250"
+				header="Панель управления" resizable="true" closable="true"
+				collapsible="true">
+
+				<h:form>
+					<p:accordionPanel multiple="true" activeIndex="0,1,2,3,4,5,6">
+					
+						<p:tab title="Менеджер услуг">
+							<p:commandLink action="/GUI/admin/product/service/add?faces-redirect=true"
+								value="Добавить услугу" />
+							<br />
+							<p:commandLink action="/GUI/admin/product/service/list?faces-redirect=true"
+								value="Список услуг" />
+							<br />
+						</p:tab>
+
+						<p:tab title="Менеджер линз">
+							<p:commandLink action="/GUI/admin/product/lens/add?faces-redirect=true"
+								value="Добавить линзу" />
+							<br />
+							<p:commandLink action="/GUI/admin/product/lens/list?faces-redirect=true"
+								value="Список линз" />
+							<br />
+						</p:tab>
+						<p:tab title="Менеджер оправ">
+							<p:commandLink action="/GUI/admin/product/frame/add?faces-redirect=true"
+								value="Добавить оправу" />
+							<br />
+							<p:commandLink action="/GUI/admin/product/frame/list?faces-redirect=true"
+								value="Список оправ" />
+							<br />
+						</p:tab>
+						<p:tab title="Менеджер продуктов">
+							<p:commandLink action="/GUI/admin/product/item/add?faces-redirect=true"
+								value="Добавить продукт" />
+							<br />
+							<p:commandLink action="/GUI/admin/product/item/list?faces-redirect=true"
+								value="Список продуктов" />
+							<br />
+						</p:tab>
+						<p:tab title="Менеджер заказов">
+							<p:commandLink action="/GUI/admin/order/add?faces-redirect=true"
+								value="Текущий заказ" />
+							<br />
+							<p:commandLink action="/GUI/admin/order/list?faces-redirect=true"
+								value="Список заказов" />
+							<br />
+						</p:tab>
+					</p:accordionPanel>
+				</h:form>
+			</p:layoutUnit>
+			<p:layoutUnit id="center" position="center">
+				<ui:insert name="content" />
+			</p:layoutUnit>
+		</p:layout>
+	</h:body>
+</f:view>
+</html>

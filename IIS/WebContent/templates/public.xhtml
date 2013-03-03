@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<f:view contentType="text/html">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>#{msg['head.title']}</title>
+		<meta name="Description"
+			content="#{msg['head.meta.description']}" />
+		<meta name="Keywords"
+			content="#{msg['head.meta.keywords']}" />
+		<meta name="url" content="#{msg['head.meta.URL']}" />
+
+		<link rel="stylesheet" href="/IIS/resources/public/css/main.css"
+			type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="/IIS/resources/public/css/menu.css"
+			type="text/css" media="screen, projection" />
+
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push([ '_setAccount', 'UA-11511806-3' ]);
+			_gaq.push([ '_trackPageview' ]);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+						: 'http://www')
+						+ '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		<ui:insert name="headIncludes" />
+	</h:head>
+	<h:body>
+		<div id="main">
+			<div id="header"></div>
+				<div class="holder">
+					<div class="columnleft">
+						<div id="main_left_menu">
+							<ul>
+								<li><h:outputLink value="${request.contextPath}/GUI/public/index.jsf">Главная</h:outputLink></li>
+								<li><h:outputLink value="${request.contextPath}/GUI/public/services.jsf">Каталог услуг</h:outputLink></li>
+								<li><h:outputLink value="${request.contextPath}/GUI/public/product.jsf">Каталог товаров</h:outputLink></li>
+								<li><h:outputLink value="${request.contextPath}/GUI/public/stock.jsf">Акции</h:outputLink></li>
+								<li><h:outputLink value="${request.contextPath}/GUI/public/recommendation.jsf">Отзывы и рекомендации</h:outputLink></li>
+								<li><h:outputLink value="${request.contextPath}/GUI/public/contacts.jsf">Контакты</h:outputLink></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="content">
+						<ui:insert name="content" />
+					</div>
+				</div>
+
+			<div class="footer">
+				<div class="address">
+					<p align="centr">
+						<em>#{msg['footer.description']}</em>
+					</p>
+					<p>
+						<em>#{msg['footer.address']}</em>
+					</p>
+					<p>
+						<em>#{msg['footer.phone']}</em>
+					</p>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</f:view>
+</html>

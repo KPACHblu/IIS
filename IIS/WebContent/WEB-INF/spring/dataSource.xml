@@ -55,6 +55,6 @@
 			</props>
 		</property>
 		<!-- Package to scan for entity classes -->
-		<property name="packagesToScan" value="org.happylook.domain"/>
+		<property name="packagesToScan" value="iis.domain"/>
 	</bean>
 </beans>
