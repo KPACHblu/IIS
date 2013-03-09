@@ -23,6 +23,7 @@
 		(@Component, @Service) -->
 	<context:component-scan base-package="iis.dao" />
 	<context:component-scan base-package="iis.service" />
+	<context:component-scan base-package="iis.core.security" />
 	
 	<!-- Файл с настройками ресурсов для работы с данными (Data Access Resources) -->
 	<import resource="dataSource.xml" />
