@@ -20,23 +20,6 @@ clear:both;
 a{
 text-decoration:underline;
 }
-a.read_more{
-display:block;
-width:66px;
-height:23px;
-line-height:23px;
-text-align:center;
-color:#fff;
-float:right;
-margin:10px 40px 0 0;
-padding:0 0 0 17px;
-text-decoration:none;
-font-size:12px;
-background:url(../images/read_more_bg.gif) no-repeat center;
-}
-a:hover.read_more{
-text-decoration:underline;
-}
 img.left_img{
 float:left;
 padding:3px 25px 3px 3px;
@@ -70,7 +53,6 @@ width: auto;
 padding:0 0 0 35px;
 font-size:22px;
 color:#24a4b3;
-background:url(../images/checked.gif) no-repeat left top;
 margin:0 0 10px 25px;
 }
 span.red{
@@ -122,13 +104,6 @@ background:url(../images/menu_bullet.gif) no-repeat bottom center;
 background:url(../images/menu_bullet.gif) no-repeat bottom center;
 }
 
-/*-------------welcome_box------------*/
-.welcome_box{
-width:496px;
-height:202px;
-background:url(../images/welcome_box.gif) no-repeat center;
-padding:0px;
-}
 /*---------------center_content-------*/
 .center_content{
 width:821px;

@@ -8,50 +8,58 @@
 	template="/templates/public.xhtml">
 
 	<ui:define name="content">
-	    <div class="center_left">
-        	<div class="title_welcome">Просмотр/редактирование пользователя</div>
-        	<h:form>
-					<p:growl id="message" showDetail="true"  autoupdate="true"/>
+	     	<div class="center_left">
+        	<div class="title_welcome">Создание пользователя</div>
+				<h:form>
+					<p:growl id="message" showDetail="true"  />
 					
 					<h:panelGrid columns="2">
 						<h:outputLabel for="male" value="Пол:" />
-						<p:selectOneRadio id="male" value="#{userBean.selectedUser.male}">  
+						<p:selectOneRadio id="male" value="#{userBean.addUser.male}">  
 				            <f:selectItem itemLabel="Мужчина" itemValue="true" />  
 				            <f:selectItem itemLabel="Женщина" itemValue="false" />  
 		        		</p:selectOneRadio>
 		        		
 		        		<h:outputLabel for="login" value="Логин:" />
 						<p:inputText id="login" required="true" size="30"
-							value="#{userBean.selectedUser.login}" />
+							value="#{userBean.addUser.login}" />
+
+						<h:outputLabel for="pwd1" value="Пароль:" />
+						<p:password id="pwd1" value="#{userBean.addUser.password}"
+							match="pwd2" label="Password 1" required="true" size="30" />
+
+						<h:outputLabel for="pwd2" value="Пароль:" />
+						<p:password id="pwd2" value="#{userBean.addUser.password}"
+							label="Password 2" required="true" size="30" />
 
 						<h:outputLabel for="fname" value="Имя:" />
 						<p:inputText id="fname" size="30"
-							value="#{userBean.selectedUser.fname}" />
+							value="#{userBean.addUser.fname}" />
 							
 						<h:outputLabel for="lname" value="Фамилия:" />
 						<p:inputText id="lname" size="30"
-							value="#{userBean.selectedUser.lname}" />
+							value="#{userBean.addUser.lname}" />
 							
 						<h:outputLabel for="mname" value="Отчество:" />
 						<p:inputText id="mname" size="30"
-							value="#{userBean.selectedUser.mname}" />
+							value="#{userBean.addUser.mname}" />
 							
 						<h:outputLabel for="birthday" value="Д/Р:" />
-						<p:calendar id="birthday" value="#{userBean.selectedUser.birthday}"
+						<p:calendar id="birthday" value="#{userBean.addUser.birthday}"
 							mode="popup" navigator="true" pattern="dd.MM.yyyy"
 							yearRange="1950:2012" size="30" />
 		
 						<h:outputLabel for="address" value="Адрес:" />
 						<p:inputText id="address" size="30"
-							value="#{userBean.selectedUser.address}" />
+							value="#{userBean.addUser.address}" />
 							
 						<h:outputLabel for="phone" value="Телефон:" />
-						<p:inputMask id="phone" size="30" value="#{userBean.selectedUser.phone}"
+						<p:inputMask id="phone" size="30" value="#{userBean.addUser.phone}"
 							mask="(999) 999-9999" />
 		
 						<h:outputLabel for="phone2" value="Телефон2:" />
 						<p:inputText id="phone2" size="30"
-							value="#{userBean.selectedUser.phone2}" />
+							value="#{userBean.addUser.phone2}" />
 							
 						<h:outputLabel for="role" value="Роль:" />
 						 <p:selectCheckboxMenu id="role" value="#{userBean.selectedRoles}" label="Роль" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:220px">  
@@ -61,18 +69,10 @@
 					
 					<br/>
 					<p:commandButton value="Сохранить" update="message"
-						action="#{userBean.update}" icon="ui-icon-disk" >
+						action="#{userBean.addUser}" icon="ui-icon-disk" >
 					</p:commandButton>
 				</h:form>
-				<br/>
-				
-				<p:dataTable var="time" value="#{userBean.loggedTimeCurrentUser}" paginator="true" rows="10"  
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
-                 rowsPerPageTemplate="5,10,15">  
-			        <p:column headerText="Время входа в систему">  
-			            <h:outputText value="#{time}" />  
-			        </p:column>  
-			    </p:dataTable>
+		
         </div> 
 	</ui:define>
 </ui:composition>

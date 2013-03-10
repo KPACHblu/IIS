@@ -18,6 +18,9 @@ public class Role {
 	public final static String TABLE_NAME = "role";
 	public final static String FIND_BY_NAME_QUERY = "findRoleByName";
 	
+	public final static String ROLE_ADMIN = "ROLE_ADMIN";
+	public final static String ROLE_ENROLLEE = "ROLE_ENROLLEE";
+	
 	public Role() {}
 
 	public Role(Long id, String name) {

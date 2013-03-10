@@ -24,7 +24,7 @@
 		<div id="main_container">
 			<div id="header">
 				<div class="logo">
-					<img src="../../resources/public/images/logo.gif" border="0" alt=""
+					<img src="/IIS/resources/public/images/logo.gif" border="0" alt=""
 						title="" />
 				</div>
 			</div>
@@ -39,21 +39,18 @@
 				<ui:insert name="content" />
 				<div class="center_right">
 					<div class="text_box">
-						<div class="title">Вход</div>
-						<a href="../../login.jsf">Вход</a>
+						<h:panelGroup rendered="#{userBean.currentUserLogin!=''}">
+							<div class="title">Добро пожаловать, #{userBean.currentUserLogin}</div>
+							<a href="/IIS/logout">Выход</a>
+						</h:panelGroup>
+						<h:panelGroup rendered="#{userBean.currentUserLogin==''}">
+							<div class="title">Вход</div>
+							<ui:include src="/login.xhtml"></ui:include>
+							<a href="/IIS/GUI/public/userReg.jsf">Регистрация</a>
+						</h:panelGroup>
 
 					</div>
-					<sec:authorize ifAllGranted="ROLE_ADMIN">
-						<div class="text_box" style="margin-top:30px;">
-							<div class="title">Админ панель</div>
-							<ul>
-								<li><a href="../../login.jsf">Создать пользователя</a></li>
-								<li><a href="../../login.jsf">Редактировать пользователя</a></li>
-								<li><a href="../../login.jsf">Создать новость</a></li>
-								<li><a href="../../login.jsf">Редактировать новость</a></li>
-							</ul>
-						</div>
-					</sec:authorize>
+					<ui:include src="admin.xhtml"></ui:include>
 				</div>
 				<div class="clear"></div>
 			</div>

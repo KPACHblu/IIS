@@ -4,11 +4,17 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:sec="http://www.springframework.org/security/tags"
 	xmlns:p="http://primefaces.org/ui">
-	
-	<ui:define name="adminPages">
-		<sec:authorize ifAllGranted="ROLE_ADMIN">
-			<li><a href="#">test</a></li>
-		</sec:authorize>
-	</ui:define>
+
+	<sec:authorize ifAllGranted="ROLE_ADMIN">
+		<div class="text_box" style="margin-top: 30px;">
+			<div class="title">Админ панель</div>
+			<ul>
+				<li><a href="/IIS/GUI/admin/user/add.jsf?faces-redirect=true">Создать пользователя</a></li>
+				<li><a href="/IIS/GUI/admin/user/list.jsf?faces-redirect=true">Просмотр пользователей</a></li>
+				<li><a href="../../login.jsf">Создать новость</a></li>
+				<li><a href="../../login.jsf">Редактировать новость</a></li>
+			</ul>
+		</div>
+	</sec:authorize>
 
 </ui:composition>

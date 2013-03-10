@@ -1,6 +1,6 @@
 package iis.domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,11 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery; 
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
@@ -34,8 +34,8 @@ public class User {
 	
 	public User(Long id, String login, String password, Boolean active,
 			String fname, String mname, String lname, Boolean male,
-			Timestamp birthday, String address, String phone, String phone2,
-			String logged, Timestamp regDate, Set<Role> roles) {
+			Date birthday, String address, String phone, String phone2,
+			String logged, Date regDate, Set<Role> roles) {
 		super();
 		this.id = id;
 		this.login = login;
@@ -82,7 +82,7 @@ public class User {
 	private Boolean male;
 	
 	@Column(name = "birthday")
-	private Timestamp birthday;
+	private Date birthday;
 	
 	@Column(name = "address")
 	private String address;
@@ -97,7 +97,7 @@ public class User {
 	private String logged;
 	
 	@Column(name = "reg_date")
-	private Timestamp regDate;
+	private Date regDate;
 	
 	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
@@ -167,11 +167,11 @@ public class User {
 		this.male = male;
 	}
 
-	public Timestamp getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Timestamp birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
@@ -207,11 +207,11 @@ public class User {
 		this.logged = logged;
 	}
 
-	public Timestamp getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(Timestamp regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 

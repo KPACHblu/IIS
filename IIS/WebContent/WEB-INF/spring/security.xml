@@ -5,15 +5,27 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+	
+	<security:global-method-security secured-annotations="enabled" />
 
 	<!-- Configure Spring Security -->
-	<security:http auto-config="true" use-expressions="true">
-		<security:form-login login-page="/login.jsf"
+	<security:http auto-config="true" access-denied-page="/accessDenied.html">
+	
+		<security:intercept-url pattern="/GUI/admin/**" access="ROLE_ADMIN" />
+		<security:form-login
+			login-page="/login.jsf"
 			login-processing-url="/j_spring_security_check"
-			default-target-url="/GUI/public/index.jsf" authentication-failure-url="/login.jsf?error=true" />
-		<security:logout logout-url="/logout"
-			logout-success-url="/GUI/public/index.jsf" />
+			default-target-url="/GUI/public/news.jsf"
+			authentication-failure-url="/GUI/public/news.jsf?error=true"
+			authentication-success-handler-ref="authenticationSuccessHandler" />
+		<security:logout
+			logout-url="/logout"
+			logout-success-url="/GUI/public/news.jsf" />
 	</security:http>
+	
+	<bean id="authenticationSuccessHandler"
+		class="iis.core.security.AuthenticationSuccessHandler">
+	</bean>
 
 	<bean id="daoAuthenticationProvider"
 		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">

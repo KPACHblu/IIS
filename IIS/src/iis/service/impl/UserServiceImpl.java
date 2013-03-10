@@ -10,7 +10,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("userServiceImpl")
 public class UserServiceImpl implements UserService{
 
 	private static final long serialVersionUID = -4704547450671634682L;

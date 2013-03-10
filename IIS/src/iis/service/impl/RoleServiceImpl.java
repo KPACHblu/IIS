@@ -9,7 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("roleServiceImpl")
 public class RoleServiceImpl implements RoleService{
 
 	private static final long serialVersionUID = -3474404822215657720L;

@@ -11,7 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("articleServiceImpl")
 public class ArticleServiceImpl implements ArticleService{
 	
 	private static final long serialVersionUID = -5475715507919667488L;
