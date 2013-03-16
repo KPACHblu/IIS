@@ -1,13 +1,9 @@
 package iis.domain;
 
-import iis.domain.Enum.ArticleTypeEnum;
-
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,10 +26,13 @@ public class Article {
 	public final static String FIND_BY_TYPE = "findArticleByType";
 	public final static String FIND_BY_DATE = "findArticleByDate"; 
 	
+	public final static String TYPE_NEWS = "news";
+	public final static String TYPE_ENROLLEE_INFO = "enrolleInfo";
+	
 	public Article() {}
 	
-	public Article(Long id, User author, ArticleTypeEnum type, String title,
-			String content, Timestamp date) {
+	public Article(Long id, User author, String type, String title,
+			String content, Date date) {
 		super();
 		this.id = id;
 		this.author = author;
@@ -52,9 +51,8 @@ public class Article {
 	@JoinColumn(name = "author_id")
 	private User author;
 
-	@Enumerated(EnumType.STRING)
 	@Column(name = "type") 
-	private ArticleTypeEnum type;
+	private String type;
 	
 	@Column(name = "title") 
 	private String title;
@@ -63,7 +61,7 @@ public class Article {
 	private String content;
 	
 	@Column(name = "date") 
-	private Timestamp date;
+	private Date date;
 
 	public Long getId() {
 		return id;
@@ -79,14 +77,6 @@ public class Article {
 
 	public void setAuthor(User author) {
 		this.author = author;
-	}
-
-	public ArticleTypeEnum getType() {
-		return type;
-	}
-
-	public void setType(ArticleTypeEnum type) {
-		this.type = type;
 	}
 
 	public String getTitle() {
@@ -105,11 +95,19 @@ public class Article {
 		this.content = content;
 	}
 
-	public Timestamp getDate() {
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(Timestamp date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

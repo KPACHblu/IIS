@@ -1,7 +1,6 @@
 package iis.service;
 
 import iis.domain.Article;
-import iis.domain.Enum.ArticleTypeEnum;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,6 +17,6 @@ public interface ArticleService extends Serializable{
 
 	List<Article> findAll();
 	
-	List<Article> findByType(ArticleTypeEnum type);
+	List<Article> findByType(String type);
 
 }

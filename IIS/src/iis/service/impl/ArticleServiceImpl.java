@@ -3,7 +3,6 @@ package iis.service.impl;
 
 import iis.dao.ArticleDAO;
 import iis.domain.Article;
-import iis.domain.Enum.ArticleTypeEnum;
 import iis.service.ArticleService;
 
 import java.util.List;
@@ -45,7 +44,7 @@ public class ArticleServiceImpl implements ArticleService{
 	}
 
 	@Override
-	public List<Article> findByType(ArticleTypeEnum type) {
+	public List<Article> findByType(String type) {
 		return articleDAO.findByType(type);
 	}
 	

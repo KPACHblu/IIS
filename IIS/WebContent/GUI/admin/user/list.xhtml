@@ -8,32 +8,34 @@
 	template="/templates/public.xhtml">
 
 	<ui:define name="content">
-     	<div class="center_left">
-       	<div class="title_welcome">Список пользователей</div>
-       		<h:form>
-			<p:dataTable var="user" value="#{userBean.allUsers}" paginator="true" rows="10"  
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
-                 rowsPerPageTemplate="5,10,15">  
-			        <p:column headerText="Логин">  
-			            <h:outputText value="#{user.login}" />  
-			        </p:column>  
-			        <p:column headerText="Имя">  
-			            <h:outputText value="#{user.lname}" />  
-			        </p:column>  
-			        <p:column headerText="Фамилия">  
-			            <h:outputText value="#{user.fname}" />  
-			        </p:column>  
-			        <p:column headerText="Отчество">  
-			            <h:outputText value="#{user.mname}" />  
-			        </p:column>  
-			        <p:column headerText="Просмотр">
-			        	<p:commandButton title="Просмотр" icon="ui-icon-search" action="edit" ajax="false">
+		<div class="center_left">
+			<div class="title_welcome">Список пользователей</div>
+			<h:form>
+				<p:dataTable var="user" value="#{userBean.allUsers}"
+					paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+					<p:column headerText="Логин">
+						<h:outputText value="#{user.login}" />
+					</p:column>
+					<p:column headerText="Имя">
+						<h:outputText value="#{user.lname}" />
+					</p:column>
+					<p:column headerText="Фамилия">
+						<h:outputText value="#{user.fname}" />
+					</p:column>
+					<p:column headerText="Отчество">
+						<h:outputText value="#{user.mname}" />
+					</p:column>
+					<p:column headerText="Просмотр">
+						<p:commandButton title="Просмотр" icon="ui-icon-search"
+							action="edit" ajax="false">
 							<f:setPropertyActionListener value="#{user}"
 								target="#{userBean.selectedUser}" />
-					</p:commandButton> 
-			        </p:column>
-			    </p:dataTable>  
-			    </h:form>
-       	</div> 
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
 	</ui:define>
 </ui:composition>

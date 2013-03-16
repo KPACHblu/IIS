@@ -1,0 +1,33 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	template="/templates/public.xhtml">
+
+	<ui:define name="content">
+	     	<div class="center_left">
+		<p:panel header="Загрузка изображения" toggleable="true"
+			closable="true" toggleSpeed="500">
+			<h:form enctype="multipart/form-data">
+				<p:growl id="messages" showDetail="true" />
+
+				<p:fileUpload value="#{fileUploadBean.file}" mode="simple"
+					update="messages imageListForm" />
+				<p:commandButton value="Submit" ajax="false" />
+			</h:form>
+		</p:panel>
+	    <p:dataTable var="file" value="#{fileUploadBean.uploadedFiles}">  
+	        <p:column headerText="Name">  
+	            <h:outputText value="#{file.name}" />  
+	        </p:column>  
+	  
+	        <p:column headerText="Path">  
+	            <h:outputText value="#{file.path}" />  
+	        </p:column>  
+	    </p:dataTable>
+		</div>
+	</ui:define>
+</ui:composition>

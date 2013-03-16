@@ -8,16 +8,42 @@
 	template="/templates/public.xhtml">
 
 	<ui:define name="content">
-	     	<div class="center_left">
-        	<div class="title_welcome">Новости кафедры</div>
-            <div class="welcome_box">
-	            <p class="welcome">
-					<span class="orange">Титульник новости </span><br />
-	 				Новость
-				</p>
-	            <a href="#" class="read_more">далее</a>          
-            </div>
+		<div class="center_left">
+			<div class="title_welcome">Просмотр/редактирование статьи</div>
+			<h:form>
+				<p:growl id="message" showDetail="true" autoupdate="true" />
 
-        </div> 
+				<h:panelGrid columns="2">
+					<h:outputLabel for="type" value="Тип:" />
+					<p:selectOneMenu  id="type" value="#{articleBean.selectedArticle.type}" >
+						 <f:selectItem itemLabel="Select One" itemValue="" /> 
+						<f:selectItems value="#{articleBean.allArticleType}" />
+					</p:selectOneMenu >
+
+					<h:outputLabel for="title" value="Заголовок:" />
+					<p:inputText id="title" required="true" size="30"
+						value="#{articleBean.selectedArticle.title}" />
+
+					<h:outputLabel for="date" value="Дата:" />
+					<p:calendar pattern="dd.MM.yyyy" showButtonPanel="true" size="30"
+						navigator="true" id="date" value="#{articleBean.selectedArticle.date}" />
+
+				</h:panelGrid><br />
+				
+				<p:editor widgetVar="editor" value="#{articleBean.selectedArticle.content}"
+				width="450" height="400" /><br />
+				
+				<h:panelGrid columns="2" style="margin-top:10px">
+					<p:commandButton value="Сохранить" update="message"
+						action="#{articleBean.update}" icon="ui-icon-disk" />
+					<p:commandButton type="button" value="Очистить"
+						onclick="editor.clear()" icon="ui-icon-close" />
+					<p:commandButton value="Удалить" update="message"
+						action="#{articleBean.delete}" icon="ui-icon-close" >
+					</p:commandButton>
+				</h:panelGrid>
+			</h:form>
+
+		</div>
 	</ui:define>
 </ui:composition>

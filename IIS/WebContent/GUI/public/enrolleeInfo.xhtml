@@ -10,17 +10,12 @@
 	<ui:define name="content">
 	    <div class="center_left">
 	    	<f:metadata>
-			 	<f:viewParam name="ARTICLE_TYPE" value="news"/> 
+			 	<f:viewParam name="ARTICLE_TYPE" value="enrolleInfo"/> 
 				<f:event type="preRenderView" listener="#{articleBean.onPageLoad}" />
 			</f:metadata>
 	    	<ui:repeat value="#{articleBean.filteredArticles}" var="article">
 	    		<div align="center"><b><i>#{article.title}</i></b></div>
 	    		<p><h:outputFormat value=" #{article.content}" escape="false" /></p><br/>
-	    		<p><i>Дата публикации: 
-		    		<h:outputText value="#{article.date}">
-		    			<f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
-					</h:outputText> 
-	    		 автор: #{article.author.login}</i></p>
 	    		<div class="separator"></div>
 	    	</ui:repeat>
         </div> 

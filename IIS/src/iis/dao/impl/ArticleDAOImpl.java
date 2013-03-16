@@ -2,7 +2,6 @@ package iis.dao.impl;
 
 import iis.dao.ArticleDAO;
 import iis.domain.Article;
-import iis.domain.Enum.ArticleTypeEnum;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class ArticleDAOImpl extends GenericDAOImpl<Article> implements
 	private static final long serialVersionUID = 962656663635886301L;
 
 	@Override
-	public List<Article> findByType(ArticleTypeEnum type) {
+	public List<Article> findByType(String type) {
 		return executeNamedQueryList(Article.FIND_BY_TYPE,
 				new Object[] { type });
 	}
