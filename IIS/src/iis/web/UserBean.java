@@ -73,6 +73,7 @@ public class UserBean extends BaseBean implements Serializable {
 			addUser.setActive(Boolean.valueOf(true));
 			userService.create(addUser);
 			addMessage(FacesMessage.SEVERITY_INFO, "Пользователь успешно добавлен", "");
+			allUsers.add(addUser);
 			addUser = new User();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -97,6 +98,7 @@ public class UserBean extends BaseBean implements Serializable {
 		try {
 			userService.deleteById(selectedUser.getId());
 			addMessage(FacesMessage.SEVERITY_INFO, "Запись \""+selectedUser.getLname()+"\" успешно удалена","");
+			allUsers.remove(selectedUser);
 			selectedUser = null;
 			return "list?faces-redirect=true";
 		} catch (Exception e) {

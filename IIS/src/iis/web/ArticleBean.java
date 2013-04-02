@@ -49,7 +49,6 @@ public class ArticleBean extends BaseBean implements Serializable {
 	public void onPageLoad(ComponentSystemEvent event) {
 		String articleType = ((String) getViewParameter("ARTICLE_TYPE"));
 		filteredArticles = articleService.findByType(articleType);
-		System.out.println(filteredArticles);
 	}
 
 
@@ -60,6 +59,7 @@ public class ArticleBean extends BaseBean implements Serializable {
 			addArticle.setType(selectedArticleType);
 			articleService.create(addArticle);
 			addMessage(FacesMessage.SEVERITY_INFO, "Статья успешно добавлена", "");
+			allArticles.add(addArticle);
 			addArticle = new Article();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,6 +82,7 @@ public class ArticleBean extends BaseBean implements Serializable {
 		try {
 			articleService.deleteById(selectedArticle.getId());
 			addMessage(FacesMessage.SEVERITY_INFO, "Запись успешно удалена","");
+			allArticles.remove(selectedArticle);
 			selectedArticle = null;
 			return "list?faces-redirect=true";
 		} catch (Exception e) {
